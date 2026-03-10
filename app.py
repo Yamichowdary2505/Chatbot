@@ -1,4 +1,5 @@
 import google.generativeai as genai
+<<<<<<< HEAD
 import streamlit as st
 import os
 from dotenv import load_dotenv
@@ -16,6 +17,18 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 st.title("💬 Chatbot")
+=======
+from dotenv import load_dotenv
+import streamlit as st
+import os
+
+load_dotenv()
+
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel("gemini-2.5-flash")
+
+st.title("Chatbot")
+>>>>>>> 514e5cc680ef5ce11e9dcfb1217b91291bf4f4f3
 
 if "chat" not in st.session_state:
     st.session_state.chat = model.start_chat(history=[])
@@ -39,4 +52,8 @@ if user_input:
 
     st.session_state.messages.append({"role": "assistant", "content": reply})
     with st.chat_message("assistant"):
+<<<<<<< HEAD
         st.write(reply)
+=======
+        st.write(reply)
+>>>>>>> 514e5cc680ef5ce11e9dcfb1217b91291bf4f4f3
